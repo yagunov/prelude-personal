@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: qclass
+# key: qclass
+# --
+class ${1:Name}
+{
+     Q_OBJECT
+public:
+    ${1:$(yas-substr text "[^: ]*")}(QObject *parent = 0);
+};
