@@ -18,15 +18,15 @@
 ;; my packages:
 (setq el-get-sources
       (append
-       '((:name accelerate
+       '((:name accelerate-24
                 :description "Pump numeric arg for auto-repeated interactive commands"
                 :type github :pkgname "yagunov/accelerate.el"))
        el-get-sources))
 
 (prelude-ensure-module-deps
- '(use-package workgroups scratch ess smex ido-ubiquitous ido-yes-or-no
-               switch-window solarized-theme diminish second-sel
-               browse-kill-ring))
+ '(use-package workgroups accelerate-24 scratch ess smex ido-ubiquitous
+               ido-yes-or-no switch-window solarized-theme diminish
+               second-sel browse-kill-ring))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows shell misc cc-mode)
