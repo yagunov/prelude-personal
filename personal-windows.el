@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: TEFL
 ;; Created: 2012-12-30 15:21:39 UTC
-;; Updated: 2013-02-19 20:16:17 IRKT
+;; Updated: 2013-03-05 14:21:33 IRKT
 
 ;;; Code:
 
@@ -52,11 +52,19 @@
                     "] "
                     (:eval (abbreviate-file-name buffer-file-name)
                            "%f" ("%b"))))))
+  :config (progn
+            (wg-load (expand-file-name "workgroups" prelude-savefile-dir))
+            (defun personal-wg-save-hook ()
+              (wg-update-all-workgroups)
+              (wg-save wg-file))
+            (add-hook 'kill-emacs-hook 'personal-wg-save-hook))
   :diminish workgroups-mode
-  :bind (("C-z w" . ido-jump-to-window)
-         ("C-z f" . maximize-window-horizontally)
-         ("C-z F" . minimize-window-horizontally)
-         ("C-z =" . balance-windows)))
+  :bind (("C-z z"   . wg-switch-to-previous-workgroup)
+         ("C-z C-z" . wg-switch-to-previous-workgroup)
+         ("C-z w"   . ido-jump-to-window)
+         ("C-z f"   . maximize-window-horizontally)
+         ("C-z F"   . minimize-window-horizontally)
+         ("C-z ="   . balance-windows)))
 
 ;; Undoing changes in window configurations.
 (use-package winner
