@@ -117,7 +117,8 @@
   (-each '(eldoc-mode elisp-slime-nav-mode flyspell-mode
                       paredit-mode prelude-mode projectile-mode
                       rainbow-mode ruby-block-mode undo-tree-mode
-                      volatile-highlights-mode workgroups-mode yas-minor-mode)
+                      volatile-highlights-mode whitespace-mode workgroups-mode
+                      yas-minor-mode)
          (lambda (mode) (diminish mode))))
 
 ;;; Local Variables:
