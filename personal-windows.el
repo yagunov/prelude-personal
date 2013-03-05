@@ -3,9 +3,9 @@
 ;; Copyright (C) 2012, 2013 by Andrey Yagunov
 
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
-;; License: TEFL
+;; License: WTFPL
 ;; Created: 2012-12-30 15:21:39 UTC
-;; Updated: 2013-03-05 14:21:33 IRKT
+;; Updated: 2013-03-05 21:26:58 IRKT
 
 ;;; Code:
 
