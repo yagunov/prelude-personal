@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:35:13 UTC
-;; Updated: 2013-02-20 22:16:36 IRKT
+;; Updated: 2013-02-23 00:17:55 IRKT
 
 ;;; Code:
 
@@ -35,7 +35,7 @@
 ;; Set language environment and coding system
 (set-language-environment "Russian")
 (set-default-coding-systems 'utf-8)
-
+(set-coding-system-priority 'utf-8 'koi8-r 'cp1251 'cp866)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'auto-tail-revert-mode 'tail-mode)
