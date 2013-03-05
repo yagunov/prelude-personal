@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-02-20 21:43:37 IRKT
+;; Updated: 2013-03-05 14:29:04 IRKT
 
 ;;; Code:
 
@@ -123,6 +123,12 @@
                 '(lambda ()
                    (bury-buffer)
                    (other-window 1))))
+
+(use-package highlight-symbol
+  :bind (("C-c C-c" . highlight-symbol-at-point)
+         ("C-c C-r" . highlight-symbol-query-replace)
+         ("C-S-n"   . highlight-symbol-next)
+         ("C-S-p"   . highlight-symbol-prev)))
 
 ;;; Local Variables:
 ;;; coding: utf-8
