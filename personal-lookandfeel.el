@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-02-19 20:09:02 IRKT
+;; Updated: 2013-03-01 14:43:48 IRKT
 
 ;;; Code:
 
@@ -22,11 +22,28 @@
                                     "%f" ("%b"))))
   ;; make emacs use the clipboard
   (setq x-select-enable-primary t
-        x-select-enable-clipboard t)
-  ;; FIXME: Choose font based on DPI or resolution.
+        x-select-enable-clipboard t))
+
+;;; Set font based on DPI
+
+(defun personal-set-fonts-for-dpi-96 ()
+  "Set custom fonts for screens with DPI of 96x96."
   (set-frame-font "Ubuntu Mono 10")
   (set-face-font 'mode-line "Consolas 8")
   (set-face-font 'mode-line-inactive "Consolas 8"))
+
+;; TODO: Make it work on other systems, at least OS X.
+(when (and window-system (eq system-type 'gnu/linux))
+  (let ((dpi-string (shell-command-to-string
+                     "xdpyinfo | awk '/dots/ {print $2}'"))
+        (dpi-regexp "\\([[:digit:]]+\\)x[[:digit:]]+")
+        dpi dpi-hook)
+    (when (string-match dpi-regexp dpi-string)
+      (setq dpi (string-to-int
+                 (substring dpi-string
+                            (match-beginning 1) (match-end 1))))
+      (cond ((>= dpi 96)
+             (add-hook 'after-init-hook 'personal-set-fonts-for-dpi-96))))))
 
 ;; Solarized config:
 (setq solarized-italic nil
