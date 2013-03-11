@@ -20,6 +20,7 @@
 
 ;; too easy to press accidentally
 (unbind-key "C-x C-c")
+(bind-key "C-x <f10>" 'save-buffers-kill-emacs)
 
 (bind-key "C-w" 'delete-word-or-region)
 (bind-key "C-x \\" 'align-regexp)
