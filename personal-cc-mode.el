@@ -5,29 +5,37 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-20 16:27:05 IRKT
-;; Updated: 2013-02-20 17:17:00 IRKT
+;; Updated: 2013-03-11 15:27:02 IRKT
 
 ;;; Code:
 
 (require 'cc-mode)
 
+(defun personal-c-mode-common-hook ()
+  ;; always use spaces
+  (setq indent-tabs-mode nil)
+
+  (cwarn-mode t)
+  (c-subword-mode t)
+
+  ;; long function arguments indentation like in python-mode
+  (c-set-offset 'arglist-intro '+)
+  (c-set-offset 'arglist-close '0)
+
+  ;; new line behavior
+  (c-toggle-auto-newline +1)
+  (local-set-key (kbd "RET") 'newline-and-indent))
+
 (defun set-c-style-comments ()
   (setq comment-start "/* ")
   (setq comment-end " */"))
 
+;; replace Prelude's default hook with mine
+(setq prelude-c-mode-common-hook 'personal-c-mode-common-hook)
 
-(setq c-default-style '((java . "java")
-                        (awk . "awk")
+(setq c-default-style '((java  . "java")
+                        (awk   . "awk")
                         (other . "k&r")))
-
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             ;; long function arguments indentation like in python-mode
-             (c-set-offset 'arglist-intro '+)
-             (c-set-offset 'arglist-close '0)
-             (c-toggle-auto-newline +1)
-             ;; (cwarn-mode t)
-             (subword-mode t)))
 
 (add-hook 'c++-mode-hook
           '(lambda()
