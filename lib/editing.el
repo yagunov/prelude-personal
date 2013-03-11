@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-02-20 15:46:12 IRKT
+;; Updated: 2013-03-06 16:47:13 IRKT
 
 ;;; Commentary:
 
@@ -76,6 +76,25 @@ to secondary selection, if called twice run `mark-whole-word'."
   (if (and mark-active (overlay-buffer mouse-secondary-overlay))
       (call-interactively 'anchored-transpose)
     (call-interactively 'transpose-chars)))
+
+(defun projectile-shell-command ()
+  "Run shell command in project's root directory."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'shell-command)))
+
+;; FIXME: Doesn't work properly with multiple projects.
+(defun projectile-eshell ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'eshell)))
+
+;; FIXME: Doesn't work properly with multiple projects.
+(defun projectile-shell ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'shell)))
+
 
 ;;; Local Variables:
 ;;; coding: utf-8
