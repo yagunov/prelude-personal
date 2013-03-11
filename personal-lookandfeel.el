@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-03-01 14:43:48 IRKT
+;; Updated: 2013-03-11 15:15:43 IRKT
 
 ;;; Code:
 
@@ -26,11 +26,13 @@
 
 ;;; Set font based on DPI
 
-(defun personal-set-fonts-for-dpi-96 ()
+(defun personal-set-fonts-for-dpi-96 (frame)
   "Set custom fonts for screens with DPI of 96x96."
-  (set-frame-font "Ubuntu Mono 10")
-  (set-face-font 'mode-line "Consolas 8")
-  (set-face-font 'mode-line-inactive "Consolas 8"))
+  (with-selected-frame frame
+    ;; (set-frame-font "Consolas 8")
+    (set-frame-font "Ubuntu Mono 9")
+    (set-face-font 'mode-line "Consolas 8")
+    (set-face-font 'mode-line-inactive "Consolas 8")))
 
 ;; TODO: Make it work on other systems, at least OS X.
 (when (and window-system (eq system-type 'gnu/linux))
@@ -43,7 +45,8 @@
                  (substring dpi-string
                             (match-beginning 1) (match-end 1))))
       (cond ((>= dpi 96)
-             (add-hook 'after-init-hook 'personal-set-fonts-for-dpi-96))))))
+             (personal-set-fonts-for-dpi-96 (selected-frame))
+             (add-hook 'after-make-frame-functions 'personal-set-fonts-for-dpi-96))))))
 
 ;; Solarized config:
 (setq solarized-italic nil
