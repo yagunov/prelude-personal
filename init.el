@@ -29,7 +29,7 @@
                highlight-symbol second-sel browse-kill-ring))
 
 ;; load my configuration modules
-(-each '(general lookandfeel editor windows shell misc cc-mode)
+(-each '(general lookandfeel editor windows programming shell misc cc-mode)
        (lambda (conf)
          (require (add-prefix "personal-" conf))))
 
