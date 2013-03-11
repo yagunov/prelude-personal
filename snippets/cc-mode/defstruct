@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: typedef struct ...
+# key: defstruct
+# --
+typedef struct __$1 {
+$0$>
+} ${1:name}_t;
