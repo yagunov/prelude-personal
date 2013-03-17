@@ -132,9 +132,11 @@
          ("C-S-p"   . highlight-symbol-prev)))
 
 ;; Extend projectile commands:
-(bind-key "C-c p !"  'projectile-shell-command)
-(bind-key "C-c p m"  'projectile-shell)
-(bind-key "C-c p M"  'projectile-eshell)
+(bind-key "C-c p !" 'projectile-shell-command)
+(bind-key "C-c p &" 'projectile-async-shell-command)
+(bind-key "C-c p m" 'projectile-shell)
+(bind-key "C-c p M" 'projectile-eshell)
+(bind-key "C-c p x" 'projectile-mx)
 
 ;;; Local Variables:
 ;;; coding: utf-8

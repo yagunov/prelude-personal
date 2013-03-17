@@ -83,18 +83,32 @@ to secondary selection, if called twice run `mark-whole-word'."
   (let ((default-directory (projectile-project-root)))
     (call-interactively 'shell-command)))
 
-;; FIXME: Doesn't work properly with multiple projects.
+(defun projectile-async-shell-command ()
+  "Run shell command in project's rood directory asynchronously."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'async-shell-command)))
+
 (defun projectile-eshell ()
+  "Start/switch to eshell buffer in project's root directory."
   (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (call-interactively 'eshell)))
+  (let* ((default-directory (projectile-project-root))
+         (eshell-buffer-name (format "*eshell:%s*" default-directory)))
+    (eshell)))
 
-;; FIXME: Doesn't work properly with multiple projects.
 (defun projectile-shell ()
+  "Start/switch to shell buffer in project's root directory."
   (interactive)
   (let ((default-directory (projectile-project-root)))
-    (call-interactively 'shell)))
+    (shell (format "*shell:%s*" default-directory))))
 
+(defun projectile-mx ()
+  "Execute Emacs command from project's root directory.
+
+May be useful for starting interpreters, e.g. `run-python'."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively (key-binding (kbd "M-x")))))
 
 ;;; Local Variables:
 ;;; coding: utf-8
