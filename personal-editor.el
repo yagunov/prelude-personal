@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-03-11 16:06:43 IRKT
+;; Updated: 2013-03-18 01:39:08 IRKT
 
 ;;; Code:
 
@@ -43,6 +43,10 @@
 (bind-key "C-x C-i" 'imenu)
 
 (bind-key "C-SPC" 'smart-set-mark-command)
+
+;; avoid accidental insertion of more then one space
+(bind-key "SPC" 'just-one-space)
+(bind-key "M-SPC" (lambda () (interactive) (insert " ")))
 
 ;; Save stuff with C-x s ...:
 (defvar ctl-x-s-map (make-sparse-keymap)
