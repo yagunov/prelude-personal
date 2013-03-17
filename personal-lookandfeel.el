@@ -5,15 +5,15 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-03-11 15:15:43 IRKT
+;; Updated: 2013-03-18 01:39:51 IRKT
 
 ;;; Code:
 
 (require 'use-package)
 
 (scroll-bar-mode 0)
-;; set 5-pixel margin in x
-(fringe-mode 5)
+;; set window side margin in X
+(fringe-mode 8)                         ; pixels
 
 (when window-system
   ;; what to display in window title

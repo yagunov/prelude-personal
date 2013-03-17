@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-03-05 16:50:50 IRKT
-;; Updated: 2013-03-05 16:50:56 IRKT
+;; Updated: 2013-03-17 23:40:07 IRKT
 
 ;;; Code:
 
@@ -15,6 +15,15 @@
           1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook 'personal-add-watchwords)
+
+(use-package git-gutter-fringe
+  :config
+  (progn
+    (setq git-gutter-fr:side 'right-fringe)
+    (set-face-foreground 'git-gutter-fr:modified "orange")
+    (set-face-foreground 'git-gutter-fr:added    "forest green")
+    (set-face-foreground 'git-gutter-fr:deleted  "red")
+    (global-git-gutter-mode t)))
 
 ;;; Local Variables:
 ;;; coding: utf-8
