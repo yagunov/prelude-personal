@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-03-06 16:47:13 IRKT
+;; Updated: 2013-03-18 01:38:21 IRKT
 
 ;;; Commentary:
 
@@ -36,6 +36,12 @@
   (if (buffer-modified-p)
       (diff-buffer-with-file)
     (vc-diff)))
+
+(defun smart-beginning-of-line ()
+  (interactive)
+  (if (eq last-command 'smart-beginning-of-line)
+      (beginning-of-line)
+    (beginning-of-line-text)))
 
 (require 'subword)
 

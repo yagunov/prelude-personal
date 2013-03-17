@@ -52,6 +52,8 @@
 (bind-key "C-x s r" 'write-region)
 (bind-key "C-x s a" 'save-some-buffers)
 
+(bind-key "C-a" 'smart-beginning-of-line)
+
 ;; Update timestamps and copyright in file headers.
 (require 'time-stamp)
 (require 'copyright)
