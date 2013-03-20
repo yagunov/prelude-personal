@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-03-18 01:38:21 IRKT
+;; Updated: 2013-03-20 04:41:19 UTC
 
 ;;; Commentary:
 
@@ -115,6 +115,16 @@ May be useful for starting interpreters, e.g. `run-python'."
   (interactive)
   (let ((default-directory (projectile-project-root)))
     (call-interactively (key-binding (kbd "M-x")))))
+
+;; `projectile-switch-project' refuses to switch to project when I call it from
+;; buffer not belonging to any project, this is a quick fix:
+(defun projectile-switch-project-fix ()
+  "Switch to a project we have seen before event if we are not in another project."
+  (interactive)
+  (if (projectile-project-p)
+      (call-interactively 'projectile-switch-project)
+    (flet ((projectile-prepend-project-name (prompt) prompt))
+      (call-interactively 'projectile-switch-project))))
 
 ;;; Local Variables:
 ;;; coding: utf-8
