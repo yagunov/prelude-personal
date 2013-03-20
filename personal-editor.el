@@ -58,6 +58,8 @@
 
 (bind-key "C-a" 'smart-beginning-of-line)
 
+(bind-key "C-x F" 'find-file-as-root)
+
 ;; Update timestamps and copyright in file headers.
 (require 'time-stamp)
 (require 'copyright)

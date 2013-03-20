@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:58:05 UTC
-;; Updated: 2013-02-18 14:04:09 IRKT
+;; Updated: 2013-03-20 05:05:19 UTC
 
 ;;; Commentary:
 
@@ -23,6 +23,22 @@
   (let ((ido-use-url-at-point nil)
         (ido-use-filename-at-point nil))
     (ido-find-file)))
+
+;; Mix of http://emacs-fu.blogspot.ru/2013/03/editing-with-root-privileges-once-more.html
+;; and `prelude-sudo-edit'.
+(defun find-file-as-root (&optional arg)
+  "Like `ido-find-file, but automatically edit the file with
+root-privileges (using tramp/sudo), if the file is not writable
+by user. When called with argument tries to reopen current file
+with root-privileges unless it's already writable."
+  (interactive "P")
+  (if (and arg buffer-file-name)
+      (unless (file-writable-p buffer-file-name)
+        (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name)))
+    (let ((file (ido-read-file-name "Edit as root: ")))
+      (unless (file-writable-p file)
+        (setq file (concat "/sudo:root@localhost:" file)))
+      (find-file file))))
 
 ;;; Local Variables:
 ;;; coding: utf-8
