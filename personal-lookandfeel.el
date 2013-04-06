@@ -67,6 +67,13 @@
                 "solarized-dark-theme.el"))
     (setq .solarized-dark-loaded t))
   (enable-theme 'solarized-dark)
+  (custom-set-faces
+   '(font-lock-doc-string-face ((t (:background "#00323E" :foreground "#657B83"))) t)
+   '(secondary-selection ((t (:background "#00261C"))))
+   '(semantic-tag-boundary-face ((t (:overline "saddle brown"))))
+   '(which-func ((t (:background "black" :foreground "green3"))))
+   '(diff-refine-added ((t (:background "black" :foreground "turquoise"))))
+   '(diff-refine-removed ((t (:background "black" :foreground "salmon")))))
   (setq .current-theme 'dark))
 
 (defun light ()
@@ -77,6 +84,13 @@
                 "solarized-light-theme.el"))
     (setq .solarized-light-loaded t))
   (enable-theme 'solarized-light)
+  (custom-set-faces
+   '(font-lock-doc-string-face ((t (:background "#DED8C7" :foreground "#657B83"))) t)
+   '(secondary-selection ((t (:background "#D0B263"))))
+   '(semantic-tag-boundary-face ((t (:overline "saddle brown"))))
+   '(which-func ((t (:background "black" :foreground "green3"))))
+   '(diff-refine-added ((t (:background "black" :foreground "turquoise"))))
+   '(diff-refine-removed ((t (:background "black" :foreground "salmon")))))
   (setq .current-theme 'light))
 
 (defun toggle-theme ()
