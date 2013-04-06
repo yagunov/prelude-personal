@@ -152,8 +152,8 @@
 ;; Extend projectile commands:
 (bind-key "C-c p !" 'projectile-shell-command)
 (bind-key "C-c p &" 'projectile-async-shell-command)
-(bind-key "C-c p m" 'projectile-shell)
-(bind-key "C-c p M" 'projectile-eshell)
+(bind-key "C-c p m" 'projectile-eshell)
+(bind-key "C-c p M-m" 'projectile-shell)
 (bind-key "C-c p x" 'projectile-mx)
 (bind-key* "C-c p s" 'projectile-switch-project-fix)
 (bind-key "C-c p c" 'projectile-compile-project-manual)
