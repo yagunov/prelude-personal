@@ -89,6 +89,11 @@
 ;; Load dark theme on start-up
 (dark)
 
+;; Increase font in minibuffer when it's active
+(add-hook 'minibuffer-setup-hook
+          '(lambda ()
+             (text-scale-increase +1)))
+
 ;; Use ido as much as possible.
 (use-package ido
   :requires ido-ubiquitous
