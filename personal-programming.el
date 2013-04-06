@@ -5,16 +5,20 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-03-05 16:50:50 IRKT
-;; Updated: 2013-03-17 23:40:07 IRKT
+;; Updated: 2013-04-06 08:53:30 UTC
 
 ;;; Code:
 
 (defun personal-add-watchwords ()
   (font-lock-add-keywords
-   nil '(("\\<\\(NOTE\\|WARN\\|WARNING\\):"
+   nil '(("\\<\\(NOTE\\|WARN\\|WARNING\\|NB\\):"
           1 font-lock-warning-face t))))
 
-(add-hook 'prog-mode-hook 'personal-add-watchwords)
+(defun personal-prog-mode-defaults ()
+  (unless (eq major-mode 'org-mode)
+    (prelude-add-watchwords)))
+
+(add-hook 'prog-mode-hook 'personal-prog-mode-defaults)
 
 (use-package git-gutter-fringe
   :config
