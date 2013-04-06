@@ -5,12 +5,13 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 13:16:36 IRKT
-;; Updated: 2013-03-13 12:41:50 IRKT
+;; Updated: 2013-03-20 05:18:35 UTC
 
 ;;; Code:
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . sh-mode))
 (add-to-list 'auto-mode-alist '("[Mm]akefile" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 ;;; Local Variables:
 ;;; coding: utf-8
