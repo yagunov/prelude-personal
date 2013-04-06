@@ -134,11 +134,20 @@
                    (bury-buffer)
                    (other-window 1))))
 
+(use-package tramp
+  :config (setq tramp-persistency-file-name (expand-file-name "tramp" prelude-savefile-dir)
+                tramp-backup-directory-alist backup-directory-alist
+                tramp-auto-save-directory (cdar backup-directory-alist)))
+
 (use-package highlight-symbol
   :bind (("C-c C-c" . highlight-symbol-at-point)
          ("C-c C-r" . highlight-symbol-query-replace)
          ("C-S-n"   . highlight-symbol-next)
          ("C-S-p"   . highlight-symbol-prev)))
+
+(setq projectile-known-projects-file
+      (expand-file-name "projectile-bookmarks.eld"
+                        prelude-savefile-dir))
 
 ;; Extend projectile commands:
 (bind-key "C-c p !" 'projectile-shell-command)
