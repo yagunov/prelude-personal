@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-03-20 05:00:18 UTC
+;; Updated: 2013-04-06 17:14:57 UTC
 
 ;;; Code:
 
@@ -156,6 +156,7 @@
 (bind-key "C-c p M" 'projectile-eshell)
 (bind-key "C-c p x" 'projectile-mx)
 (bind-key* "C-c p s" 'projectile-switch-project-fix)
+(bind-key "C-c p c" 'projectile-compile-project-manual)
 
 
 ;;; Local Variables:

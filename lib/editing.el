@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-03-20 04:41:19 UTC
+;; Updated: 2013-04-06 17:05:54 UTC
 
 ;;; Commentary:
 
@@ -137,6 +137,12 @@ May be useful for starting interpreters, e.g. `run-python'."
       (call-interactively 'projectile-switch-project)
     (flet ((projectile-prepend-project-name (prompt) prompt))
       (call-interactively 'projectile-switch-project))))
+
+(defun projectile-compile-project-manual ()
+  "Execute compilation command from project's root directory."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'compile)))
 
 ;;; Local Variables:
 ;;; coding: utf-8
