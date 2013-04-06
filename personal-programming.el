@@ -25,6 +25,27 @@
     (set-face-foreground 'git-gutter-fr:deleted  "red")
     (global-git-gutter-mode t)))
 
+(use-package semantic
+  :config
+  (progn
+    (add-to-list 'semantic-default-submodes
+                 'global-semantic-decoration-mode)
+    (add-to-list 'semantic-default-submodes
+                 'global-semantic-idle-summary-mode)
+    (add-to-list 'semantic-default-submodes
+                 'global-semantic-idle-local-symbol-highlight-mode)
+    (add-to-list 'semantic-default-submodes
+                 'global-semantic-mru-bookmark-mode))
+  :init (semantic-mode +1))
+
+(when (ignore-errors (require 'auto-complete-config nil t))
+  (ac-config-default)
+  (ac-flyspell-workaround)
+
+  (eval-after-load "semantic"
+    '(setq-default ac-sources
+                   (cons 'ac-source-semantic ac-sources))))
+
 ;;; Local Variables:
 ;;; coding: utf-8
 ;;; time-stamp-time-zone: UTC
