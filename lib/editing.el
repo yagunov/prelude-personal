@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-04-06 17:05:54 UTC
+;; Updated: 2013-04-06 17:57:41 UTC
 
 ;;; Commentary:
 
@@ -94,6 +94,14 @@ displayed."
     (if (region-active-p)
         (occur (buffer-substring-no-properties (region-beginning) (region-end)))
       (occur (thing-at-point 'symbol)))))
+
+(defun jump-out-of-block ()
+  "Jump out of code parentheses pair or code block."
+  (interactive)
+  (when (and (looking-back "^[[:space:]]*")
+             (looking-at "[\n\t ]*\\(}\\|break;\\|return;\\)"))
+    (delete-blank-lines))
+  (search-forward-regexp "\\(break;\\|return;\\|[])}\"'>]\\)"))
 
 (defun projectile-shell-command ()
   "Run shell command in project's root directory."

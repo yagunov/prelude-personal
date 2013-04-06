@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-04-06 17:19:04 UTC
+;; Updated: 2013-04-06 17:57:17 UTC
 
 ;;; Code:
 
@@ -60,6 +60,8 @@
 (bind-key "C-a" 'smart-beginning-of-line)
 
 (bind-key "C-x F" 'find-file-as-root)
+
+(bind-key "C-<return>" 'jump-out-of-block)
 
 ;; Update timestamps and copyright in file headers.
 (require 'time-stamp)
