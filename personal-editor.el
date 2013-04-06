@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-04-06 17:14:57 UTC
+;; Updated: 2013-04-06 17:19:04 UTC
 
 ;;; Code:
 
@@ -140,11 +140,16 @@
                 tramp-auto-save-directory (cdar backup-directory-alist)))
 
 (use-package highlight-symbol
-  :bind (("C-c C-c" . highlight-symbol-at-point)
+  :bind (("C-c m"   . highlight-symbol-at-point)
+         ("C-c M"   . highlight-symbol-remove-all)
+         ("C-c M-m" . highlight-symbol-remove-all)
          ("C-c C-r" . highlight-symbol-query-replace)
          ("C-S-n"   . highlight-symbol-next)
-         ("C-S-p"   . highlight-symbol-prev)))
-
+         ("C-S-p"   . highlight-symbol-prev))
+  :config (setq highlight-symbol-colors
+                '("orange" "brown" "dark cyan" "MediumPurple1" "dark green"
+                  "DarkOrange" "HotPink1" "RoyalBlue1" "OliveDrab")))
+q
 (setq projectile-known-projects-file
       (expand-file-name "projectile-bookmarks.eld"
                         prelude-savefile-dir))
