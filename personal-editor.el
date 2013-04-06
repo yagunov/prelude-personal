@@ -39,6 +39,7 @@
 
 ;; search
 (bind-key "C-o" 'isearch-occur isearch-mode-map)
+(bind-key "M-o" 'smart-occur)
 (bind-key "C-x i" 'imenu)
 (bind-key "C-x C-i" 'imenu)
 

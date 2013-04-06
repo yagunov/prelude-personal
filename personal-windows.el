@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-30 15:21:39 UTC
-;; Updated: 2013-03-05 21:26:58 IRKT
+;; Updated: 2013-03-22 07:00:32 UTC
 
 ;;; Code:
 
@@ -18,7 +18,6 @@
 
 ;; more convenient keys to move back and forth through the windows
 (bind-key* "C-o" 'other-window)
-(bind-key* "M-o" 'other-window-back)
 (bind-key* "C-M-o" 'other-window-back)
 ;; adding and removing windows
 (bind-key* "C-;" (split-window-func-with-other-buffer

@@ -13,6 +13,8 @@
 
 ;;; Code:
 
+(require 'thingatpt)
+
 (defun delete-word-or-region (&optional arg)
   "Delete word if mark isn't active and region otherwise."
   (interactive "p")
@@ -82,6 +84,16 @@ to secondary selection, if called twice run `mark-whole-word'."
   (if (and mark-active (overlay-buffer mouse-secondary-overlay))
       (call-interactively 'anchored-transpose)
     (call-interactively 'transpose-chars)))
+
+(defun smart-occur (&optional prefix)
+  "Show list of matching lines in buffer.
+Numeric prefix defines how many lines surrounding match will be
+displayed."
+  (interactive "P")
+  (let ((list-matching-lines-default-context-lines (or prefix 0)))
+    (if (region-active-p)
+        (occur (buffer-substring-no-properties (region-beginning) (region-end)))
+      (occur (thing-at-point 'symbol)))))
 
 (defun projectile-shell-command ()
   "Run shell command in project's root directory."
