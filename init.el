@@ -27,7 +27,7 @@
  '(use-package workgroups accelerate-24 scratch ess smex ido-ubiquitous
                ido-yes-or-no switch-window solarized-theme diminish
                highlight-symbol second-sel browse-kill-ring
-               git-gutter-fringe))
+               git-gutter-fringe auto-complete wgrep))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows programming shell misc cc-mode)
