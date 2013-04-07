@@ -16,7 +16,8 @@
 
 (defun personal-prog-mode-defaults ()
   (unless (eq major-mode 'org-mode)
-    (prelude-add-watchwords)))
+    (prelude-add-watchwords))
+  (local-set-key (kbd "<return>") 'newline-and-indent))
 
 (add-hook 'prog-mode-hook 'personal-prog-mode-defaults)
 
