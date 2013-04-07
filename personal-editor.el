@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-04-06 17:57:17 UTC
+;; Updated: 2013-04-07 14:15:06 UTC
 
 ;;; Code:
 
@@ -25,6 +25,9 @@
 (bind-key "C-w" 'delete-word-or-region)
 (bind-key "C-x \\" 'align-regexp)
 
+;; Open files with root privileges
+(bind-key "C-x F" 'find-file-as-root)
+
 ;; more visual goto-line
 (bind-key "M-g g" 'goto-line-with-feedback)
 (bind-key "M-g M-g" 'goto-line-with-feedback)
@@ -37,12 +40,18 @@
 ;; diff buffer and file on disk or use VCS diff
 (bind-key "C-x v =" 'dwim-diff)
 
-;; search
+;; Search:
 (bind-key "C-o" 'isearch-occur isearch-mode-map)
 (bind-key "M-o" 'smart-occur)
 (bind-key "C-x i" 'imenu)
 (bind-key "C-x C-i" 'imenu)
 
+;; Text navigation
+(bind-key "C-a" 'smart-beginning-of-line)
+(bind-key "C-e" 'smart-end-of-line)
+(bind-key "C-<return>" 'jump-out-of-block)
+
+;; Selection:
 (bind-key "C-SPC" 'smart-set-mark-command)
 
 ;; avoid accidental insertion of more then one space
@@ -57,11 +66,6 @@
 (bind-key "C-x s r" 'write-region)
 (bind-key "C-x s a" 'save-some-buffers)
 
-(bind-key "C-a" 'smart-beginning-of-line)
-
-(bind-key "C-x F" 'find-file-as-root)
-
-(bind-key "C-<return>" 'jump-out-of-block)
 
 ;; Update timestamps and copyright in file headers.
 (require 'time-stamp)

@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-04-06 17:57:41 UTC
+;; Updated: 2013-04-07 14:46:05 UTC
 
 ;;; Commentary:
 
@@ -39,11 +39,26 @@
       (diff-buffer-with-file)
     (vc-diff)))
 
+(require 'newcomment)
+
 (defun smart-beginning-of-line ()
   (interactive)
   (if (eq last-command 'smart-beginning-of-line)
       (beginning-of-line)
-    (beginning-of-line-text)))
+    (unless (ignore-errors
+              (unless (comment-search-backward (line-beginning-position) t)
+                (beginning-of-line-text)))
+      (beginning-of-line))))
+
+(defun smart-end-of-line ()
+  (interactive)
+  (if (eq last-command 'smart-end-of-line)
+      (end-of-line)
+    (when (comment-search-forward (line-end-position) t)
+      (goto-char (match-beginning 0))
+      (if (looking-back "^\s+")
+          (end-of-line)
+        (skip-syntax-backward " " (line-beginning-position))))))
 
 (require 'subword)
 
@@ -130,7 +145,6 @@ displayed."
 
 (defun projectile-mx ()
   "Execute Emacs command from project's root directory.
-
 May be useful for starting interpreters, e.g. `run-python'."
   (interactive)
   (let ((default-directory (projectile-project-root)))
