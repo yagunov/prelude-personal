@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-04-07 14:46:05 UTC
+;; Updated: 2013-04-08 13:01:32 UTC
 
 ;;; Commentary:
 
@@ -45,9 +45,9 @@
   (interactive)
   (if (eq last-command 'smart-beginning-of-line)
       (beginning-of-line)
-    (unless (ignore-errors
-              (unless (comment-search-backward (line-beginning-position) t)
-                (beginning-of-line-text)))
+    (when (ignore-errors
+            (unless (comment-search-backward (line-beginning-position) t)
+              (beginning-of-line-text)))
       (beginning-of-line))))
 
 (defun smart-end-of-line ()
