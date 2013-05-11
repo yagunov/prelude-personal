@@ -3,7 +3,10 @@
   (intern (concat prefix (symbol-name symbol))))
 
 (setq prelude-guru nil
-      prelude-flycheck nil)
+      prelude-flycheck nil
+      prelude-auto-save nil)
+
+(global-auto-revert-mode -1)
 
 ;; load Prelude modules:
 (-each '(c clojure common-lisp css emacs-lisp erlang haskell
