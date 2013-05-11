@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-03-18 01:39:51 IRKT
+;; Updated: 2013-05-11 12:52:13 UTC
 
 ;;; Code:
 
@@ -32,7 +32,7 @@
   "Set custom fonts for screens with DPI of 96x96."
   (with-selected-frame frame
     ;; (set-frame-font "Consolas 8")
-    (set-frame-font "Ubuntu Mono 9")
+    (set-frame-font "Consolas 10")
     (set-face-font 'mode-line "Consolas 8")
     (set-face-font 'mode-line-inactive "Consolas 8")))
 
