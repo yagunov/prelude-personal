@@ -23,14 +23,20 @@
       (append
        '((:name accelerate-24
                 :description "Pump numeric arg for auto-repeated interactive commands"
-                :type github :pkgname "yagunov/accelerate.el"))
+                :type github :pkgname "yagunov/accelerate.el")
+         (:name google-translate
+                :description "Emacs interface to Google Translate"
+                :type github :pkgname "manzyuk/google-translate")
+         (:name wgrep
+                :description "Writable grep buffer and apply the changes to files"
+                :type github :pkgname "mhayashi1120/Emacs-wgrep"))
        el-get-sources))
 
 (prelude-ensure-module-deps
- '(use-package workgroups accelerate-24 scratch ess smex ido-ubiquitous
-               ido-yes-or-no switch-window solarized-theme diminish
-               highlight-symbol second-sel browse-kill-ring
-               git-gutter-fringe auto-complete wgrep))
+ '(use-package workgroups accelerate-24 anchored-transpose google-translate
+               scratch ess smex ido-ubiquitous ido-yes-or-no switch-window
+               solarized-theme diminish highlight-symbol second-sel
+               browse-kill-ring git-gutter-fringe auto-complete wgrep))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows programming shell misc cc-mode)
