@@ -13,7 +13,9 @@
 
 (scroll-bar-mode 0)
 ;; set window side margin in X
-(fringe-mode 8)                         ; pixels
+(set-fringe-mode '(10 . 5))             ; left — 10px, right — 5px
+(setq-default indicate-buffer-boundaries 'left
+              indicate-empty-lines t)
 
 (when window-system
   ;; what to display in window title
