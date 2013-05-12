@@ -5,11 +5,12 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-04-07 16:29:41 UTC
+;; Updated: 2013-05-12 05:23:18 UTC
 
 ;;; Code:
 
 (require 'use-package)
+(require 'key-chord)
 
 (require 'lib/editing)
 (require 'lib/files)
@@ -35,7 +36,7 @@
 ;; leave C-h and M-h for deletion
 (bind-key "C-h" 'delete-backward-char)
 (bind-key "M-h" 'backward-kill-word)
-(bind-key "C-x ?" help-map)
+(key-chord-define-global "DD" help-map)
 
 ;; diff buffer and file on disk or use VCS diff
 (bind-key "C-x v =" 'dwim-diff)
