@@ -5,13 +5,15 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 13:16:36 IRKT
-;; Updated: 2013-05-11 17:04:04 UTC
+;; Updated: 2013-07-07 15:16:46 UTC
 
 ;;; Code:
 
 (add-to-list 'auto-mode-alist '("\\.zsh$" . sh-mode))
 (add-to-list 'auto-mode-alist '("[Mm]akefile" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.s$" . asm-mode))
+(add-to-list 'auto-mode-alist '("\\.l[i]?st$" . asm-mode))
 
 (defun english-text-p ()
   (let ((beg (point)))
