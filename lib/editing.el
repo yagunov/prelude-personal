@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-04-08 13:01:32 UTC
+;; Updated: 2013-08-03 05:11:01 UTC
 
 ;;; Commentary:
 
@@ -171,6 +171,12 @@ May be useful for starting interpreters, e.g. `run-python'."
   (interactive)
   (let ((default-directory (projectile-project-root)))
     (call-interactively 'compile)))
+
+(defun projectile-direx-jump ()
+  "Open root directory in direx buffer."
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'direx:jump-to-directory)))
 
 ;;; Local Variables:
 ;;; coding: utf-8

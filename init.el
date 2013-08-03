@@ -34,7 +34,7 @@
 
 (prelude-ensure-module-deps
  '(use-package workgroups popwin accelerate-24 anchored-transpose google-translate
-               scratch ess smex ido-ubiquitous ido-yes-or-no switch-window
+               direx scratch ess smex ido-ubiquitous ido-yes-or-no switch-window
                solarized-theme diminish highlight-symbol second-sel
                browse-kill-ring git-gutter-fringe auto-complete wgrep
                qmake-mode

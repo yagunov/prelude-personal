@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-05-12 05:23:18 UTC
+;; Updated: 2013-08-03 14:02:11 UTC
 
 ;;; Code:
 
@@ -158,6 +158,11 @@
   :config (setq highlight-symbol-colors
                 '("orange" "brown" "dark cyan" "MediumPurple1" "dark green"
                   "DarkOrange" "HotPink1" "RoyalBlue1" "OliveDrab")))
+
+(use-package direx
+  :bind (("C-c j"   . direx:jump-to-directory-other-window)
+         ("C-c C-j" . direx:jump-to-directory)
+         ("C-c p j" . projectile-direx-jump)))
 
 (setq projectile-known-projects-file
       (expand-file-name "projectile-bookmarks.eld"
