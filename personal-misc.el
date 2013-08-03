@@ -33,6 +33,7 @@
     (call-interactively 'google-translate-at-point)))
 
 (use-package google-translate
+  :init (require 'google-translate)
   :config (setq google-translate-enable-ido-completion t
                 google-translate-default-source-language "auto"
                 google-translate-default-target-language "en")
