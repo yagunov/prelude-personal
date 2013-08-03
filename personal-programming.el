@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-03-05 16:50:50 IRKT
-;; Updated: 2013-04-06 08:53:30 UTC
+;; Updated: 2013-08-03 05:20:46 UTC
 
 ;;; Code:
 
@@ -50,6 +50,19 @@
   (eval-after-load "semantic"
     '(setq-default ac-sources
                    (cons 'ac-source-semantic ac-sources))))
+
+(when (executable-find "ipython")
+  (eval-after-load 'python
+    '(setq python-shell-interpreter "ipython"
+           python-shell-interpreter-args ""
+           python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+           python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+           python-shell-completion-setup-code
+           "from IPython.core.completerlib import module_completion"
+           python-shell-completion-module-string-code
+           "';'.join(module_completion('''%s'''))\n"
+           python-shell-completion-string-code
+           "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")))
 
 ;;; Local Variables:
 ;;; coding: utf-8
