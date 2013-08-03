@@ -16,6 +16,8 @@
 (set-fringe-mode '(10 . 5))             ; left — 10px, right — 5px
 (setq-default indicate-buffer-boundaries 'left
               indicate-empty-lines t)
+;; fixed width for line numbers bar
+(setq linum-format "%7d")
 
 (when window-system
   ;; what to display in window title
