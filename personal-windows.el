@@ -82,14 +82,16 @@
   :bind ("C-z s" . scratch)
   :config (add-to-list 'scratch-mode-alist '(ess-mode . R-mode)))
 
-;; FIXME: Consumes too much CPU.
-;; (use-package popwin
-;;   :init (progn
-;;           (require 'popwin)
-;;           (setq display-buffer-function 'popwin:display-buffer)
-;;           (global-set-key (kbd "C-S-z") popwin:keymap)
-;;           (push "*Local Variables*" popwin:special-display-config))
-;;   :bind ("C-`" . popwin:close-popup-window))
+(use-package popwin
+  :init (progn
+          (require 'popwin)
+          (popwin-mode 1)
+          (global-set-key (kbd "C-S-z") popwin:keymap)
+          (load-file (expand-file-name "popwin/misc/popwin-browse-kill-ring.el"
+                                       el-get-dir))
+          (push '("*Kill Ring*" :noselect t) popwin:special-display-config)
+          (push "*Local Variables*" popwin:special-display-config))
+  :bind ("C-`" . popwin:close-popup-window))
 
 ;;; Local Variables:
 ;;; coding: utf-8
