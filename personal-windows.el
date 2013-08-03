@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-30 15:21:39 UTC
-;; Updated: 2013-03-22 07:00:32 UTC
+;; Updated: 2013-08-03 04:35:38 UTC
 
 ;;; Code:
 
@@ -31,6 +31,8 @@
 
 (bind-key* "C-x o" 'swap-window-next)
 (bind-key* "C-x C-o" 'swap-window-previous)
+
+(bind-key "C-x C-k" 'kill-buffer-and-window)
 
 ;; Managing multiple groups of windows.
 (use-package workgroups
