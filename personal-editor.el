@@ -51,6 +51,8 @@
 (bind-key "C-a" 'smart-beginning-of-line)
 (bind-key "C-e" 'smart-end-of-line)
 (bind-key "C-<return>" 'jump-out-of-block)
+(bind-key "M-N" 'next-error)
+(bind-key "M-P" 'previous-error)
 
 ;; Selection:
 (bind-key "C-SPC" 'smart-set-mark-command)
