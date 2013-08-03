@@ -33,10 +33,13 @@
        el-get-sources))
 
 (prelude-ensure-module-deps
- '(use-package workgroups accelerate-24 anchored-transpose google-translate
+ '(use-package workgroups popwin accelerate-24 anchored-transpose google-translate
                scratch ess smex ido-ubiquitous ido-yes-or-no switch-window
                solarized-theme diminish highlight-symbol second-sel
-               browse-kill-ring git-gutter-fringe auto-complete wgrep))
+               browse-kill-ring git-gutter-fringe auto-complete wgrep
+               qmake-mode
+               ;; qml-mode
+               ))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows programming shell misc cc-mode)
@@ -44,4 +47,5 @@
          (require (add-prefix "personal-" conf))))
 
 ;; Start emacs server
-(server-start)
+(require 'server)
+(unless (server-running-p) (server-start))
