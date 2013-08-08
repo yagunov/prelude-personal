@@ -35,7 +35,10 @@
                 :type github :pkgname "manzyuk/google-translate")
          (:name wgrep
                 :description "Writable grep buffer and apply the changes to files"
-                :type github :pkgname "mhayashi1120/Emacs-wgrep"))
+                :type github :pkgname "mhayashi1120/Emacs-wgrep")
+         (:name ido-yes-or-no
+                :description "Use Ido to answer yes-or-no questions"
+                :type github :pkgname "DarwinAwardWinner/ido-yes-or-no"))
        el-get-sources))
 
 (prelude-ensure-module-deps
