@@ -24,6 +24,12 @@
        '((:name accelerate-24
                 :description "Pump numeric arg for auto-repeated interactive commands"
                 :type github :pkgname "yagunov/accelerate.el")
+         (:name elixir-mix
+                :description "Emacs integration for Elixir's mix"
+                :type github :pkgname "tonini/elixir-mix.el")
+         (:name elixir-mode
+                :description "Major mode for editing Elixir files"
+                :type github :pkgname "elixir-lang/emacs-elixir")
          (:name google-translate
                 :description "Emacs interface to Google Translate"
                 :type github :pkgname "manzyuk/google-translate")
@@ -39,6 +45,7 @@
                browse-kill-ring git-gutter-fringe auto-complete wgrep
                qmake-mode
                ;; qml-mode
+               elixir-mix elixir-mode
                ))
 
 ;; load my configuration modules
