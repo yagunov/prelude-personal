@@ -46,10 +46,7 @@
                direx scratch ess smex ido-ubiquitous ido-yes-or-no switch-window
                solarized-theme diminish highlight-symbol second-sel
                browse-kill-ring git-gutter-fringe auto-complete wgrep
-               qmake-mode
-               ;; qml-mode
-               elixir-mix elixir-mode
-               ))
+               qmake-mode qml-mode elixir-mix elixir-mode))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows programming shell misc cc-mode)
