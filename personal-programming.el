@@ -5,21 +5,21 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-03-05 16:50:50 IRKT
-;; Updated: 2013-08-05 02:50:37 UTC
+;; Updated: 2013-08-08 16:17:58 UTC
 
 ;;; Code:
 
 ;; auto-scroll compilation output
 (setq compilation-scroll-output t)
 
-(defun personal-add-watchwords ()
+(defun personal-font-lock-comment-annotations ()
   (font-lock-add-keywords
    nil '(("\\<\\(NOTE\\|WARN\\|WARNING\\|NB\\):"
           1 font-lock-warning-face t))))
 
 (defun personal-prog-mode-defaults ()
   (unless (eq major-mode 'org-mode)
-    (prelude-add-watchwords))
+    (personal-font-lock-comment-annotations))
   (local-set-key (kbd "<return>") 'newline-and-indent))
 
 (add-hook 'prog-mode-hook 'personal-prog-mode-defaults)
