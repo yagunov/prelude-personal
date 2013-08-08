@@ -1,3 +1,18 @@
+;;; init.el --- Personal Emacs configuration for Prelude (main file).
+
+;; Copyright (C) 2012, 2013 by Andrey Yagunov
+
+;; Author:  Andrey Yagunov <yagunov86@gmail.com>
+;; License: WTFPL
+;; Created: 2012-12-26 12:57:32 UTC
+;; Updated: 2013-08-08 16:45:25 UTC
+
+;;; Commentary:
+
+;; TODO: add long description here.
+
+;;; Code:
+
 (defun add-prefix (prefix symbol)
   "Make new symbol from old by adding a prefix."
   (intern (concat prefix (symbol-name symbol))))
@@ -56,3 +71,5 @@
 ;; Start emacs server
 (require 'server)
 (unless (server-running-p) (server-start))
+
+;;; init.el ends here

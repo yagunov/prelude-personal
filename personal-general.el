@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:35:13 UTC
-;; Updated: 2013-07-02 13:07:37 UTC
+;; Updated: 2013-08-08 16:46:22 UTC
 
 ;;; Code:
 
@@ -46,15 +46,6 @@
 
 ;; Seed the random-number generator.
 (random t)
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-time-zone: UTC
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'personal-general)
 

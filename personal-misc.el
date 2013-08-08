@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 13:16:36 IRKT
-;; Updated: 2013-07-07 15:16:46 UTC
+;; Updated: 2013-08-08 16:46:34 UTC
 
 ;;; Code:
 
@@ -40,14 +40,6 @@
                 google-translate-default-source-language "auto"
                 google-translate-default-target-language "en")
   :bind (("C-x t" . smart-google-translate)))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'personal-misc)
 

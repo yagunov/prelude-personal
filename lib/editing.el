@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-08-04 12:23:37 UTC
+;; Updated: 2013-08-08 16:43:14 UTC
 
 ;;; Commentary:
 
@@ -183,15 +183,6 @@ May be useful for starting interpreters, e.g. `run-python'."
   (interactive)
   (let ((default-directory (projectile-project-root)))
     (call-interactively 'direx:jump-to-directory-other-window)))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-time-zone: UTC
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'lib/editing)
 

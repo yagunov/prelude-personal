@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-20 16:27:05 IRKT
-;; Updated: 2013-08-08 04:52:08 UTC
+;; Updated: 2013-08-08 16:46:11 UTC
 
 ;;; Code:
 
@@ -57,14 +57,6 @@
              (c-set-style "java")
              (personal-c-arglist)
              (personal-c-style-comments)))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'personal-cc-mode)
 

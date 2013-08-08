@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-30 15:21:39 UTC
-;; Updated: 2013-08-03 04:35:38 UTC
+;; Updated: 2013-08-08 16:47:29 UTC
 
 ;;; Code:
 
@@ -94,15 +94,6 @@
           (push '("*Kill Ring*" :noselect t) popwin:special-display-config)
           (push "*Local Variables*" popwin:special-display-config))
   :bind ("C-`" . popwin:close-popup-window))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-time-zone: UTC
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'personal-windows)
 

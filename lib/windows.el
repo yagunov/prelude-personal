@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:59:31 UTC
-;; Updated: 2013-01-02 16:33:48 UTC
+;; Updated: 2013-08-08 16:46:05 UTC
 
 ;;; Commentary:
 
@@ -113,15 +113,6 @@
   (interactive)
   (unless (one-window-p)
     (swap-windows (selected-window) (previous-window))))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-time-zone: UTC
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'lib/windows)
 

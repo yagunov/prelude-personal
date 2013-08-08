@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:58:05 UTC
-;; Updated: 2013-03-20 05:05:19 UTC
+;; Updated: 2013-08-08 16:45:50 UTC
 
 ;;; Commentary:
 
@@ -39,15 +39,6 @@ with root-privileges unless it's already writable."
       (unless (file-writable-p file)
         (setq file (concat "/sudo:root@localhost:" file)))
       (find-file file))))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-time-zone: UTC
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'lib/files)
 

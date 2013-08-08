@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-05-11 12:52:13 UTC
+;; Updated: 2013-08-08 16:46:29 UTC
 
 ;;; Code:
 
@@ -163,15 +163,6 @@
                       volatile-highlights-mode whitespace-mode workgroups-mode
                       yas-minor-mode)
          (lambda (mode) (diminish mode))))
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-time-zone: UTC
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'personal-lookandfeel)
 

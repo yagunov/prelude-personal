@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-08-08 16:40:23 UTC
+;; Updated: 2013-08-08 16:43:42 UTC
 
 ;;; Code:
 
@@ -177,15 +177,6 @@
 (bind-key "C-c p x" 'projectile-mx)
 (bind-key* "C-c p s" 'projectile-switch-project-fix)
 (bind-key "C-c p c" 'projectile-compile-project-manual)
-
-
-;;; Local Variables:
-;;; coding: utf-8
-;;; time-stamp-format: "%:y-%02m-%02d %02H:%02M:%02S %Z"
-;;; time-stamp-start: ";; Updated: "
-;;; time-stamp-end: "$"
-;;; time-stamp-line-limit: 20
-;;; End:
 
 (provide 'personal-editor)
 
