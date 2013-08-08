@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-08-08 16:43:42 UTC
+;; Updated: 2013-08-08 16:51:53 UTC
 
 ;;; Code:
 
@@ -160,10 +160,10 @@
                   "DarkOrange" "HotPink1" "RoyalBlue1" "OliveDrab")))
 
 (use-package direx
-  :bind (("C-c j"     . direx:jump-to-directory-other-window)
-         ("C-c C-j"   . direx:jump-to-directory)
-         ("C-c p j"   . projectile-direx-jump-other-window)
-         ("C-c p C-j" . projectile-direx-jump)))
+  :bind (("C-c j"     . direx:jump-to-directory)
+         ("C-c C-j"   . direx:jump-to-directory-other-window)
+         ("C-c p j"   . projectile-direx-jump)
+         ("C-c p C-j" . projectile-direx-jump-other-window)))
 
 (setq projectile-known-projects-file
       (expand-file-name "projectile-bookmarks.eld"
