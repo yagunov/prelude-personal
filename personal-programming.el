@@ -5,9 +5,12 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-03-05 16:50:50 IRKT
-;; Updated: 2013-08-03 05:20:46 UTC
+;; Updated: 2013-08-05 02:50:37 UTC
 
 ;;; Code:
+
+;; auto-scroll compilation output
+(setq compilation-scroll-output t)
 
 (defun personal-add-watchwords ()
   (font-lock-add-keywords
