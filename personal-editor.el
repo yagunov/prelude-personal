@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-08-04 12:23:00 UTC
+;; Updated: 2013-08-08 16:40:23 UTC
 
 ;;; Code:
 
@@ -136,7 +136,7 @@
   :bind ("C-t" . smart-transpose))
 
 (use-package browse-kill-ring
-  :require browse-kill-ring+            ; TODO: read more about it's features
+  :requires browse-kill-ring+           ; TODO: read more about it's features
   :bind ("M-y" . browse-kill-ring)
   :config (setq browse-kill-ring-quit-action
                 '(lambda ()
