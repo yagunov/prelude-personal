@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-20 16:27:05 IRKT
-;; Updated: 2013-03-14 23:43:35 IRKT
+;; Updated: 2013-08-08 04:52:08 UTC
 
 ;;; Code:
 
@@ -15,17 +15,20 @@
   (setq comment-start "/* ")
   (setq comment-end " */"))
 
-(defun personal-c-arglist ()
-  "Long function arguments indentation like in python-mode."
+(defun personal-cc-mode-indent-style ()
+  "My tweaks to CC-mode indent style."
+  ;; Long function arguments indentation like in python-mode.
   (c-set-offset 'arglist-intro '+)
-  (c-set-offset 'arglist-close '0))
+  (c-set-offset 'arglist-close '0)
+  ;; Do not indent lines inside 'extern "C"' constructs.
+  (c-set-offset 'inextern-lang 0))
 
 (defun personal-c-mode-common-hook ()
   ;; always use spaces
   (setq indent-tabs-mode nil)
   (cwarn-mode t)
   (c-subword-mode t)
-  (personal-c-arglist)
+  (personal-cc-mode-indent-style)
   ;; new line behavior
   (c-toggle-auto-newline +1)
   (local-set-key (kbd "RET") 'newline-and-indent))
