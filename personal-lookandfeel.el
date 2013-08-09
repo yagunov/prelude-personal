@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-08-08 16:46:29 UTC
+;; Updated: 2013-08-09 04:25:31 UTC
 
 ;;; Code:
 
@@ -28,29 +28,27 @@
   (setq x-select-enable-primary t
         x-select-enable-clipboard t))
 
-;;; Set font based on DPI
-
-(defun personal-set-fonts-for-dpi-96 (frame)
-  "Set custom fonts for screens with DPI of 96x96."
+(defun personal-set-fonts (frame fonts)
+  "Set custom fonts."
   (with-selected-frame frame
-    ;; (set-frame-font "Consolas 8")
-    (set-frame-font "Consolas 10")
-    (set-face-font 'mode-line "Consolas 8")
-    (set-face-font 'mode-line-inactive "Consolas 8")))
+    (set-frame-font (car fonts))
+    (dolist (f (cdr fonts))
+      (if (listp f)
+          (set-face-font (car f) (cdr f))))))
 
-;; TODO: Make it work on other systems, at least OS X.
-(when (and window-system (eq system-type 'gnu/linux))
-  (let ((dpi-string (shell-command-to-string
-                     "xdpyinfo | awk '/dots/ {print $2}'"))
-        (dpi-regexp "\\([[:digit:]]+\\)x[[:digit:]]+")
-        dpi dpi-hook)
-    (when (string-match dpi-regexp dpi-string)
-      (setq dpi (string-to-int
-                 (substring dpi-string
-                            (match-beginning 1) (match-end 1))))
-      (cond ((>= dpi 96)
-             (personal-set-fonts-for-dpi-96 (selected-frame))
-             (add-hook 'after-make-frame-functions 'personal-set-fonts-for-dpi-96))))))
+;;; Set font based on hostname
+(let ((fonts
+       (cond ((string= system-name "andrey-desktop")
+              '("Consolas 10"
+                (mode-line . "Consolas 9")
+                (mode-line-inactive . "Consolas 9")))
+             ((string= system-name "fusion")
+              '("Consolas 8"
+                (mode-line . "Consolas 7")
+                (mode-line-inactive . "Consolas 7"))))))
+  (personal-set-fonts (selected-frame) fonts)
+  (add-hook 'after-make-frame-functions
+            '(lambda (frame) (personal-set-fonts frame fonts))))
 
 ;; Solarized config:
 (setq solarized-italic nil
