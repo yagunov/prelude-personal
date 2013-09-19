@@ -37,18 +37,20 @@
           (set-face-font (car f) (cdr f))))))
 
 ;;; Set font based on hostname
-(let ((fonts
-       (cond ((string= system-name "andrey-desktop")
-              '("Consolas 10"
-                (mode-line . "Consolas 9")
-                (mode-line-inactive . "Consolas 9")))
-             ((string= system-name "fusion")
-              '("Consolas 8"
-                (mode-line . "Consolas 7")
-                (mode-line-inactive . "Consolas 7"))))))
+(lexical-let
+    ((fonts
+      (cond ((string= system-name "andrey-desktop")
+             '("Consolas 10"
+               (mode-line . "Consolas 9")
+               (mode-line-inactive . "Consolas 9")))
+            ((string= system-name "fusion")
+             '("Consolas 8"
+               (mode-line . "Consolas 7")
+               (mode-line-inactive . "Consolas 7"))))))
   (personal-set-fonts (selected-frame) fonts)
-  (add-hook 'after-make-frame-functions
-            '(lambda (frame) (personal-set-fonts frame fonts))))
+  (defun personal-set-frame-fonts-hook (frame)
+    (personal-set-fonts frame fonts))
+  (add-hook 'after-make-frame-functions 'personal-set-frame-fonts-hook))
 
 ;; Solarized config:
 (setq solarized-italic nil
