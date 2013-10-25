@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-10-11 04:52:14 UTC
+;; Updated: 2013-10-25 14:58:32 UTC
 
 ;;; Commentary:
 
@@ -51,6 +51,9 @@
          (:name google-translate
                 :description "Emacs interface to Google Translate"
                 :type github :pkgname "manzyuk/google-translate")
+         (:name gruber-darker-theme
+                :description "Dark color theme for Emacs"
+                :type github :pkgname "rexim/gruber-darker-theme")
          (:name wgrep
                 :description "Writable grep buffer and apply the changes to files"
                 :type github :pkgname "mhayashi1120/Emacs-wgrep")
@@ -62,7 +65,7 @@
 (prelude-ensure-module-deps
  '(use-package workgroups anzu popwin accelerate-24 anchored-transpose google-translate
                direx scratch ess smex ido-ubiquitous ido-yes-or-no linum+ switch-window
-               solarized-theme diminish highlight-symbol second-sel
+               gruber-darker-theme diminish highlight-symbol second-sel
                browse-kill-ring git-gutter-fringe auto-complete wgrep
                qmake-mode qml-mode elixir-mix elixir-mode sml-mode quack geiser))
 

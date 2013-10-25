@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-06-04 04:31:13 UTC
-;; Updated: 2013-08-09 04:25:31 UTC
+;; Updated: 2013-10-25 14:59:18 UTC
 
 ;;; Code:
 
@@ -52,60 +52,8 @@
     (personal-set-fonts frame fonts))
   (add-hook 'after-make-frame-functions 'personal-set-frame-fonts-hook))
 
-;; Solarized config:
-(setq solarized-italic nil
-      solarized-contrast 'high
-      solarized-diff-mode 'high)
-
-;; FIXME: Quick workaround for load-theme problem.
-(setq .solarized-dark-loaded nil
-      .solarized-light-loaded nil)
-
-(setq .current-theme nil)
-
-(defun dark ()
-  "Enable dark color theme."
-  (interactive)
-  (unless .solarized-dark-loaded
-    (load (path (el-get-package-directory 'solarized-theme)
-                "solarized-dark-theme.el"))
-    (setq .solarized-dark-loaded t))
-  (enable-theme 'solarized-dark)
-  (custom-set-faces
-   '(font-lock-doc-string-face ((t (:background "#00323E" :foreground "#657B83"))) t)
-   '(secondary-selection ((t (:background "#00261C"))))
-   '(semantic-tag-boundary-face ((t (:overline "saddle brown"))))
-   '(which-func ((t (:background "black" :foreground "green3"))))
-   '(diff-refine-added ((t (:background "black" :foreground "turquoise"))))
-   '(diff-refine-removed ((t (:background "black" :foreground "salmon")))))
-  (setq .current-theme 'dark))
-
-(defun light ()
-  "Enable light color theme."
-  (interactive)
-  (unless .solarized-light-loaded
-    (load (path (el-get-package-directory 'solarized-theme)
-                "solarized-light-theme.el"))
-    (setq .solarized-light-loaded t))
-  (enable-theme 'solarized-light)
-  (custom-set-faces
-   '(font-lock-doc-string-face ((t (:background "#DED8C7" :foreground "#657B83"))) t)
-   '(secondary-selection ((t (:background "#D0B263"))))
-   '(semantic-tag-boundary-face ((t (:overline "saddle brown"))))
-   '(which-func ((t (:background "black" :foreground "green3"))))
-   '(diff-refine-added ((t (:background "black" :foreground "turquoise"))))
-   '(diff-refine-removed ((t (:background "black" :foreground "salmon")))))
-  (setq .current-theme 'light))
-
-(defun toggle-theme ()
-  "Toggle between dark and light color themes."
-  (interactive)
-  (if (eq .current-theme 'dark)
-      (light)
-    (dark)))
-
 ;; Load dark theme on start-up
-(dark)
+(use-package gruber-darker-theme)
 
 ;; Increase font in minibuffer when it's active
 (add-hook 'minibuffer-setup-hook
