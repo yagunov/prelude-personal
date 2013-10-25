@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-09-25 07:44:30 UTC
+;; Updated: 2013-10-25 14:29:38 UTC
 
 ;;; Code:
 
@@ -46,6 +46,7 @@
 (bind-key* "M-o" 'smart-occur)
 (bind-key "C-x i" 'imenu)
 (bind-key "C-x C-i" 'imenu)
+(bind-key "C-x C-g" 'ack-same)
 
 (use-package aok
   ;; TODO: Write a wrapper for automatic default current mode and text
