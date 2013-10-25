@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-03-05 16:50:50 IRKT
-;; Updated: 2013-08-08 16:46:42 UTC
+;; Updated: 2013-10-25 15:07:58 UTC
 
 ;;; Code:
 
@@ -25,6 +25,7 @@
 (add-hook 'prog-mode-hook 'personal-prog-mode-defaults)
 
 (use-package git-gutter-fringe
+  :diminish git-gutter-mode
   :config
   (progn
     (setq git-gutter-fr:side 'right-fringe)
