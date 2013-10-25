@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-10-25 14:29:38 UTC
+;; Updated: 2013-10-25 15:09:49 UTC
 
 ;;; Code:
 
@@ -53,13 +53,16 @@
   ;;   selection.
   :bind (("M-O" . occur-select)))
 
-(defun personal-anzu-update-func (here total)
-  (propertize (format "<%d/%d>" here total)
-              'face '((:foreground "yellow" :weight bold))))
-
+;; TODO: Write a replacement function for `highlight-symbol-query-replace' that
+;;   uses `anzu-query-replace-regexp' instead of `query-replace-regexp'.
 (use-package anzu
-  :config (setq anzu-mode-line-update-function 'personal-anzu-update-func)
-  :init (global-anzu-mode))
+  :bind (("M-%"   . anzu-query-replace)
+         ("C-M-%" . anzu-query-replace-regexp))
+  :diminish anzu-mode
+  :init (progn
+          (global-anzu-mode)
+          (set-face-attribute 'anzu-mode-line nil
+                              :foreground "yellow" :weight 'bold)))
 
 ;; Text navigation
 (bind-key "C-a" 'smart-beginning-of-line)
