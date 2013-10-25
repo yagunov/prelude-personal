@@ -17,7 +17,7 @@
 (setq-default indicate-buffer-boundaries 'left
               indicate-empty-lines t)
 ;; fixed width for line numbers bar
-(setq linum-format "%7d")
+(use-package linum+)
 
 (when window-system
   ;; what to display in window title

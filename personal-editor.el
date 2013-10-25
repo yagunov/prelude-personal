@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-08-08 16:51:53 UTC
+;; Updated: 2013-09-25 07:44:30 UTC
 
 ;;; Code:
 
@@ -43,9 +43,22 @@
 
 ;; Search:
 (bind-key "C-o" 'isearch-occur isearch-mode-map)
-(bind-key "M-o" 'smart-occur)
+(bind-key* "M-o" 'smart-occur)
 (bind-key "C-x i" 'imenu)
 (bind-key "C-x C-i" 'imenu)
+
+(use-package aok
+  ;; TODO: Write a wrapper for automatic default current mode and text
+  ;;   selection.
+  :bind (("M-O" . occur-select)))
+
+(defun personal-anzu-update-func (here total)
+  (propertize (format "<%d/%d>" here total)
+              'face '((:foreground "yellow" :weight bold))))
+
+(use-package anzu
+  :config (setq anzu-mode-line-update-function 'personal-anzu-update-func)
+  :init (global-anzu-mode))
 
 ;; Text navigation
 (bind-key "C-a" 'smart-beginning-of-line)

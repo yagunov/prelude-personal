@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-08-08 16:45:25 UTC
+;; Updated: 2013-10-11 04:52:14 UTC
 
 ;;; Commentary:
 
@@ -39,6 +39,9 @@
        '((:name accelerate-24
                 :description "Pump numeric arg for auto-repeated interactive commands"
                 :type github :pkgname "yagunov/accelerate.el")
+         (:name anzu
+                :description "Emacs port of anzu.vim"
+                :type github :pkgname "syohex/emacs-anzu")
          (:name elixir-mix
                 :description "Emacs integration for Elixir's mix"
                 :type github :pkgname "tonini/elixir-mix.el")
@@ -57,11 +60,11 @@
        el-get-sources))
 
 (prelude-ensure-module-deps
- '(use-package workgroups popwin accelerate-24 anchored-transpose google-translate
-               direx scratch ess smex ido-ubiquitous ido-yes-or-no switch-window
+ '(use-package workgroups anzu popwin accelerate-24 anchored-transpose google-translate
+               direx scratch ess smex ido-ubiquitous ido-yes-or-no linum+ switch-window
                solarized-theme diminish highlight-symbol second-sel
                browse-kill-ring git-gutter-fringe auto-complete wgrep
-               qmake-mode qml-mode elixir-mix elixir-mode))
+               qmake-mode qml-mode elixir-mix elixir-mode sml-mode quack geiser))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows programming shell misc cc-mode)
