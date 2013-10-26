@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2012-12-26 12:57:32 UTC
-;; Updated: 2013-10-25 14:58:32 UTC
+;; Updated: 2013-10-26 17:48:43 UTC
 
 ;;; Commentary:
 
@@ -22,6 +22,7 @@
       prelude-auto-save nil)
 
 (global-auto-revert-mode -1)
+(key-chord-mode -1)
 
 ;; load Prelude modules:
 (-each '(c clojure common-lisp css emacs-lisp erlang haskell
@@ -39,21 +40,9 @@
        '((:name accelerate-24
                 :description "Pump numeric arg for auto-repeated interactive commands"
                 :type github :pkgname "yagunov/accelerate.el")
-         (:name anzu
-                :description "Emacs port of anzu.vim"
-                :type github :pkgname "syohex/emacs-anzu")
-         (:name elixir-mix
-                :description "Emacs integration for Elixir's mix"
-                :type github :pkgname "tonini/elixir-mix.el")
-         (:name elixir-mode
-                :description "Major mode for editing Elixir files"
-                :type github :pkgname "elixir-lang/emacs-elixir")
          (:name google-translate
                 :description "Emacs interface to Google Translate"
                 :type github :pkgname "manzyuk/google-translate")
-         (:name gruber-darker-theme
-                :description "Dark color theme for Emacs"
-                :type github :pkgname "rexim/gruber-darker-theme")
          (:name wgrep
                 :description "Writable grep buffer and apply the changes to files"
                 :type github :pkgname "mhayashi1120/Emacs-wgrep")
@@ -63,11 +52,11 @@
        el-get-sources))
 
 (prelude-ensure-module-deps
- '(use-package workgroups anzu popwin accelerate-24 anchored-transpose google-translate
+ '(use-package workgroups popwin accelerate-24 anchored-transpose google-translate
                direx scratch ess smex ido-ubiquitous ido-yes-or-no linum+ switch-window
                gruber-darker-theme diminish highlight-symbol second-sel
                browse-kill-ring git-gutter-fringe auto-complete wgrep
-               qmake-mode qml-mode elixir-mix elixir-mode sml-mode quack geiser))
+               qmake-mode qml-mode elixir elixir-mix sml-mode quack geiser))
 
 ;; load my configuration modules
 (-each '(general lookandfeel editor windows programming shell misc cc-mode)

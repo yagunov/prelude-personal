@@ -5,7 +5,7 @@
 ;; Author:  Andrey Yagunov <yagunov86@gmail.com>
 ;; License: WTFPL
 ;; Created: 2013-02-19 14:03:11 IRKT
-;; Updated: 2013-10-25 15:09:49 UTC
+;; Updated: 2013-10-26 17:49:17 UTC
 
 ;;; Code:
 
@@ -58,11 +58,8 @@
 (use-package anzu
   :bind (("M-%"   . anzu-query-replace)
          ("C-M-%" . anzu-query-replace-regexp))
-  :diminish anzu-mode
-  :init (progn
-          (global-anzu-mode)
-          (set-face-attribute 'anzu-mode-line nil
-                              :foreground "yellow" :weight 'bold)))
+  :init (set-face-attribute 'anzu-mode-line nil
+                            :foreground "yellow" :weight 'bold))
 
 ;; Text navigation
 (bind-key "C-a" 'smart-beginning-of-line)
